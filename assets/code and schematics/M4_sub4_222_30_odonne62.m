@@ -19,7 +19,7 @@ function [v_I,v_F] = M4_sub4_222_30_odonne62(accel_index, data)
 %
 % Assignment Information
 %   Assignment:     M4, Subfunction 4
-%   Author:         Bridget O'Donnell, odonne62@purdue.edu
+%   Author:         Bridget O'Donnell, TJ Bielefeld
 %   Team ID:        222-30
 %   Academic Integrity:
 %     [] I worked with one or more peers but our collaboration
