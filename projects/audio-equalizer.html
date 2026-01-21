@@ -24,36 +24,69 @@
     </p>
     <h2>Project Overview</h2>
     <p>
-      Designed and tested an analog audio equalizer with independent bass,
-      midrange, and treble control using active filtering and amplification.
+      Designed, constructed, and experimentally validated a three-band analog audio equalizer
+  with independent bass, midrange, and treble control. The system integrates passive RC filters,
+  op-amp gain stages, signal recombination, and a power amplifier capable of driving an 8&nbsp;Ω
+  speaker while meeting strict frequency, ripple, and power specifications.
     </p>
+  </section>
+
+  <section>
+  <h2>Key Visuals</h2>
+
+  <div class="project-images-vertical">
+  <img src="../assets/images/Audio-Equalizer-SS/max-vol-100.png"
+       alt="Max AC RMS (max vol) of eq at 100 Hz">
+
+  <img src="../assets/images/Audio-Equalizer-SS/audio-eq-final-schematic.png"
+       alt="Full Audio Equalizer LTSPice Schematic">
+  </div>
+
+  <p style="text-align:center; font-size:0.95rem; color:#555;">
+  Full test cases, supplement files, and schematics are included in the report below and on GitHub.
+  </p>
   </section>
 
   <section>
     <h2>Technical Stack</h2>
     <ul>
-      <li>LTSpice</li>
+      <li>Analog circuit design (RC filters, op-amp amplification)</li>
+      <li>Operational amplifiers (LM324, OP07)</li>
+      <li>LM386 audio power amplifier</li>
+      <li>LTSpice simulation and hardware prototyping</li>
+      <li>Oscilloscope-based frequency response and RMS measurements</li>
     </ul>
   </section>
   
   <section>
     <h2>Engineering Approach</h2>
     <ul>
-      <li>Designed analog filters for bass, midrange, and treble bands</li>
-      <li>Simulated frequency response and verified with lab measurements</li>
-      <li>Debugged gain and stability issues in op-amp stages</li>
+      <li>Designed low-pass, band-pass, and high-pass RC filters to isolate bass (&lt;320&nbsp;Hz),
+      midrange (320–3200&nbsp;Hz), and treble (&gt;3200&nbsp;Hz) frequency bands within ±10% tolerance.</li>
+      <li>Implemented buffered, inverting op-amp gain stages with potentiometer control to allow
+      independent amplification or attenuation of each frequency band.</li>
+      <li>Recombined filtered signals using a summing amplifier and validated low ripple performance,then integrated a power amplifier stage capable of delivering &gt;400&nbsp;mW to an 8&nbsp;Ω load across the audio frequency range.</li>
     </ul>
   </section>
 
   <section>
     <h2>Key Takeaways</h2>
     <ul>
-      <li>Tradeoffs between active vs passive filtering</li>
-      <li>How component tolerances affect frequency response</li>
-      <li>Practical op-amp limitations beyond ideal models</li>
+      <li>Strengthened understanding of analog filter design, cutoff frequency selection,
+      and the impact of component tolerances on real-world performance.</li>
+      <li>Gained hands-on experience designing stable op-amp gain stages, summing amplifiers,
+      and managing signal integrity across multiple analog stages.</li>
+      <li>Learned to experimentally validate full-system performance using frequency response,
+      ripple analysis, and power measurements to align with simulations.</li>
     </ul>
   </section>
 
+  <div class="pdf-button">
+    <a href="https://github.com/timbeely/timbeely.github.io/tree/main/assets/" target="_blank">
+      View Supplementary Files on GitHub
+    </a>
+  </div>
+  
   <section>
     <h2>Report</h2>
 
