@@ -26,31 +26,51 @@
     <p>
       Designed and authored a program that takes a CVS file containing raw NYC bike traffic data and extracts conclusions regarding weekly traffic patterns, weather dependencies, and finding the best implementation of traffic sensor installation.
     </p>
-  
   </section>
 
   <section>
+  <h2>Key Visuals</h2>
+
+  <div class="project-images-vertical">
+  <img src="../assets/images/NYC-Bike-Traffic-SS/weekly-traffic-patterns.png"
+       alt="Weekly Bike Traffic Patterns in NYC">
+
+  <img src="../assets/images/NYC-Bike-Traffic-SS/weather-correlation.png"
+       alt="Weather Correlation Values for NYC Bike Traffic">
+  </div>
+
+  <p style="text-align:center; font-size:0.95rem; color:#555;">
+  Estimated correlation values for weather events across NYC bike traffic.
+  Full tables and analysis are included in the report below.
+  </p>
+  </section>
+  
+  <section>
     <h2>Technical Stack</h2>
     <ul>
-      <li></li>
+      <li>Python</li>
+      <li>Pandas (CSV ingestion, cleaning, aggregation)</li>
+      <li>scikit-learn (LinearRegression, R² evaluation)</li>
+      <li>Matplotlib (bar chart visualization)</li>
     </ul>
   </section>
   
   <section>
     <h2>Engineering Approach</h2>
     <ul>
-      <li></li>
-      <li></li>
-      <li></li>
+      <li>Imported and cleaned the NYC bicycle counts dataset.</li>
+      <li>Built and compared four 3-bridge linear regression models to determine the most effective sensor deployment strategy using R² as the selection metric.</li>
+      <li>Modeled traffic dependence on weather using multivariable regression (high temp, low temp, precipitation), validated relationships using a correlation matrix, and analyzed weekday vs weekend ridership trends with grouping + nearest-mean day classification.</li>
     </ul>
   </section>
 
   <section>
     <h2>Key Takeaways</h2>
     <ul>
-      <li></li>
-      <li></li>
-      <li></li>
+      <li>Learned how to transform raw real-world CSV data into structured numeric features suitable for modeling and analysis.</li>
+      <li>Used regression performance (R²) to justify a sensor placement decision, and determines which 3-bridge selectiob predicts total traffic with highest accuracy.</li>
+      <li>Confirmed that weather meaningfully influences ridership while weekday commuter patterns dominate overall traffic trends.</li>
+
     </ul>
   </section>
 
