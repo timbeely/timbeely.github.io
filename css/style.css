@@ -482,7 +482,24 @@ iframe {
   transform: translateY(-1px);
 }
 
+nav a.active {
+  color: white;
+  position: relative;
+}
 
+nav a.active::after {
+  content: "";
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: -7px;
+
+  height: 2px;
+
+  background-color: #60a5fa;
+  border-radius: 2px;
+}
 /* =========================
    PROJECT STATUS
    ========================= */
