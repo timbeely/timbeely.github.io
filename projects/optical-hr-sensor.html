@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    Optical Heart Rate Sensor | Timothy Bielefeld
+  </title>
+
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+
+<body>
+
+  <header>
+
+    <h1>Optical Heart Rate Sensor</h1>
+
+    <p class="subtitle">
+      Analog Circuit Design • Signal Processing • PPG • FRA • Instrumentation
+    </p>
+
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="index.html">Projects</a>
+      <a href="../resume.html">Resume</a>
+      <a href="https://github.com/timbeely" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/tj-bielefeld" target="_blank">LinkedIn</a>
+    </nav>
+
+  </header>
+
+
+  <section>
+
+    <p>
+      <a href="index.html">← Back to Projects</a>
+    </p>
+
+
+    <!-- PROJECT OVERVIEW -->
+
+    <h2>Project Overview</h2>
+
+    <p>
+      I designed, built, and experimentally validated a non-invasive optical
+      heart rate sensor based on photoplethysmography (PPG). The system used
+      infrared light transmitted through a finger to detect small changes in
+      blood volume associated with each heartbeat.
+    </p>
+
+    <p>
+      Because the raw optical signal contained a large DC component and a
+      relatively small heartbeat waveform, I designed an analog signal
+      processing chain to isolate and amplify the pulse before converting
+      it into a clean digital output.
+    </p>
+
+    <p>
+      The completed four-stage system combined optical sensing, active
+      high-pass and low-pass filtering, approximately 55 V/V measured peak
+      gain, comparator-based pulse detection, and a physical LED that flashed
+      in synchronization with the user's heartbeat.
+    </p>
+
+
+    <!-- KEY VISUALS -->
+
+    <h2>Key Visuals</h2>
+
+    <div class="project-images">
+
+      <figure>
+        <img
+          src="../assets/images/heart-rate/IMG_0076.JPG"
+          alt="Breadboard implementation of optical heart rate sensor"
+        >
+
+        <figcaption>
+          Breadboard implementation of the optical sensing, filtering,
+          comparator, and LED circuitry.
+        </figcaption>
+      </figure>
+
+
+      <figure>
+        <img
+          src="../assets/images/heart-rate/stage_2_BPF_FRA_dB.png"
+          alt="Frequency response analysis of optical heart rate sensor band-pass filter"
+        >
+
+        <figcaption>
+          Frequency response analysis of the cascaded active filter chain,
+          showing the measured band-pass response used to isolate heartbeat
+          frequencies.
+        </figcaption>
+      </figure>
+
+
+      <figure>
+        <img
+          src="../assets/images/heart-rate/stage_4_90BPM_output.png"
+          alt="Analog heartbeat waveform and digital comparator output at approximately 90 BPM"
+        >
+
+        <figcaption>
+          Integrated analog heartbeat signal and comparator output during
+          approximately 90 BPM testing.
+        </figcaption>
+      </figure>
+
+
+      <figure>
+        <img
+          src="../assets/images/heart-rate/good_heartrate150BPM.png"
+          alt="Optical heart rate sensor output at elevated heart rate"
+        >
+
+        <figcaption>
+          Heartbeat detection during elevated-heart-rate testing,
+          demonstrating operation beyond resting conditions.
+        </figcaption>
+      </figure>
+
+    </div>
+
+
+    <!-- TECHNICAL STACK -->
+
+    <h2>Technical Stack</h2>
+
+    <ul>
+
+      <li>
+        <strong>Sensing:</strong>
+        Infrared emitter and phototransistor
+      </li>
+
+      <li>
+        <strong>Signal Processing:</strong>
+        Active high-pass and low-pass filters
+      </li>
+
+      <li>
+        <strong>Operational Amplifiers:</strong>
+        LM324N
+      </li>
+
+      <li>
+        <strong>Comparator:</strong>
+        LM339
+      </li>
+
+      <li>
+        <strong>Output Driver:</strong>
+        NMOS-switched LED indicator
+      </li>
+
+      <li>
+        <strong>Instrumentation:</strong>
+        Digilent Analog Discovery 2
+      </li>
+
+      <li>
+        <strong>Validation:</strong>
+        Oscilloscope measurements and Frequency Response Analysis
+      </li>
+
+      <li>
+        <strong>Design Methods:</strong>
+        RC filter calculations, non-inverting op-amp gain analysis,
+        comparator hysteresis, and experimental component selection
+      </li>
+
+    </ul>
+
+
+    <!-- ENGINEERING APPROACH -->
+
+    <h2>Engineering Approach</h2>
+
+
+    <h3>Optical Pulse Detection</h3>
+
+    <p>
+      The sensing stage used an infrared emitter and phototransistor placed
+      on opposite sides of a finger. Changes in capillary blood volume during
+      each heartbeat altered the amount of infrared light reaching the
+      phototransistor, producing a small periodic voltage variation.
+    </p>
+
+    <p>
+      The sensor biasing was selected experimentally to maintain the
+      phototransistor in its active operating region while producing a usable
+      heartbeat signal. The final sensor output measured approximately
+      1.42 V DC with an approximately 83 mV peak-to-peak heartbeat ripple.
+    </p>
+
+
+    <h3>Analog Filtering and Amplification</h3>
+
+    <p>
+      The raw optical signal contained a large DC offset and unwanted
+      low- and high-frequency content. I designed cascaded active high-pass
+      and low-pass filters to isolate the frequency range associated with
+      a human heartbeat while simultaneously amplifying the small sensor
+      waveform.
+    </p>
+
+    <p>
+      Each filter stage used a non-inverting LM324 op-amp configuration.
+      Theoretical component values were selected using RC cutoff-frequency
+      equations and non-inverting amplifier gain calculations before the
+      design was built and experimentally characterized.
+    </p>
+
+    <p>
+      Frequency Response Analysis measured a lower cutoff of approximately
+      0.370 Hz and an upper cutoff of approximately 5.03 Hz. The cascaded
+      filter chain reached a measured peak gain of 54.87 V/V near
+      1.35 Hz.
+    </p>
+
+
+    <h3>Analog-to-Digital Pulse Detection</h3>
+
+    <p>
+      After filtering and amplification, the analog heartbeat waveform was
+      passed into an LM339 comparator. The comparator converted each detected
+      pulse into a clean digital square-wave output that could be counted
+      directly for heart-rate measurements.
+    </p>
+
+    <p>
+      Comparator hysteresis was incorporated to improve noise immunity and
+      reduce the risk of multiple digital transitions from a single
+      heartbeat. The digital signal also controlled an NMOS transistor that
+      drove a green LED, creating a visible pulse indicator.
+    </p>
+
+
+    <h3>Frequency Response Validation</h3>
+
+    <p>
+      I used the Analog Discovery 2 to characterize the individual filter
+      stages and the complete cascaded response. Experimental cutoff
+      frequencies, gain, and phase were compared with theoretical design
+      values.
+    </p>
+
+    <p>
+      The measured response confirmed that the filter chain passed the
+      intended human-heart-rate frequency range while attenuating DC drift
+      and higher-frequency interference. Differences between theoretical
+      and experimental cutoff frequencies were evaluated in relation to
+      component tolerances and the interaction of the cascaded filters.
+    </p>
+
+
+    <h3>Heart Rate Testing</h3>
+
+    <p>
+      The fully integrated circuit was tested using both resting and elevated
+      heart rates. During one resting measurement, the circuit detected
+      90 BPM while an Apple Watch measured 93 BPM, corresponding to a
+      3.33% difference.
+    </p>
+
+    <p>
+      Elevated-heart-rate testing also demonstrated continued pulse
+      detection, although increased finger movement introduced additional
+      noise into the optical signal. The comparator continued producing
+      distinct digital transitions corresponding to detected heartbeats.
+    </p>
+
+
+    <!-- KEY TAKEAWAYS -->
+
+    <h2>Key Takeaways</h2>
+
+    <ul>
+
+      <li>
+        Designed a complete analog signal-processing chain from a physical
+        optical measurement through a digital output.
+      </li>
+
+      <li>
+        Applied RC filter design and operational-amplifier gain equations to
+        amplify a millivolt-scale biological signal.
+      </li>
+
+      <li>
+        Used Frequency Response Analysis to compare theoretical filter
+        behavior with the completed physical circuit.
+      </li>
+
+      <li>
+        Evaluated component tolerances and non-ideal behavior when measured
+        cutoff frequencies differed from theoretical predictions.
+      </li>
+
+      <li>
+        Implemented comparator hysteresis to improve pulse-detection
+        reliability in the presence of analog noise.
+      </li>
+
+      <li>
+        Gained experience integrating sensing, analog filtering,
+        amplification, threshold detection, and physical output hardware
+        into one system.
+      </li>
+
+    </ul>
+
+
+    <!-- REPORT -->
+
+    <h2>Report</h2>
+
+    <p>
+      The full project report documents the circuit design, component
+      calculations, schematics, Frequency Response Analysis, experimental
+      measurements, error analysis, and final heart-rate validation.
+    </p>
+    
+    <iframe
+      src="../assets/pdf/optical-heart-rate-sensor-report.pdf"
+      width="100%"
+      height="900px"
+      style="border: none;">
+    </iframe>
+    
+    <a
+      class="pdf-button"
+      href="../assets/pdf/optical-heart-rate-sensor-report.pdf"
+      target="_blank"
+    >
+      View Full Project Report →
+    </a>
+
+
+    <div class="project-navigation">
+
+      <a class="primary-button" href="index.html">
+        ← Back to Projects
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <footer>
+    <p>© 2026 Timothy Bielefeld</p>
+  </footer>
+
+
+</body>
+</html>
