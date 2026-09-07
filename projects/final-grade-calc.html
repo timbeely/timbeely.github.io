@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    Final Grade Calculator | Timothy Bielefeld
+  </title>
+
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+
+<body>
+
+  <header>
+
+    <h1>Final Grade Calculator</h1>
+
+    <p class="subtitle">
+      JavaScript • Web Development • Dynamic UI • Local Storage
+    </p>
+
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="index.html">Projects</a>
+      <a href="../resume.html">Resume</a>
+      <a href="https://github.com/timbeely" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/tj-bielefeld" target="_blank">LinkedIn</a>
+    </nav>
+
+  </header>
+
+
+  <section>
+
+    <p>
+      <a href="index.html">← Back to Projects</a>
+    </p>
+
+
+    <!-- PROJECT OVERVIEW -->
+
+    <h2>Project Overview</h2>
+
+    <p>
+      I developed a client-side web application that helps students determine
+      the score they need on a final exam to reach a desired course grade.
+      The calculator supports courses with different grading structures,
+      including weighted categories and individually weighted assignments.
+    </p>
+
+    <p>
+      The project was designed as a practical utility rather than a static
+      calculator. Users can dynamically add or remove assignments, switch
+      between weighting methods, include extra credit, and receive updated
+      grade calculations without reloading the page.
+    </p>
+
+    <p>
+      Form data is saved locally in the browser so a user's course setup is
+      restored after refreshing or reopening the application.
+    </p>
+
+
+    <!-- KEY VISUALS -->
+
+    <h2>Key Visuals</h2>
+
+    <div class="project">
+
+      <h3>Interactive Grade Calculation Interface</h3>
+
+      <p>
+        The application provides separate sections for homework,
+        assignments, quizzes, and midterms while allowing each category
+        to use either a shared category weight or individual assignment
+        weights.
+      </p>
+
+      <p>
+        The interface also includes a responsive light/dark theme and a
+        results panel that displays both the user's current class grade
+        and required final-exam score.
+      </p>
+
+    </div>
+
+
+    <!-- TECHNICAL STACK -->
+
+    <h2>Technical Stack</h2>
+
+    <ul>
+
+      <li>
+        <strong>Structure:</strong>
+        HTML5
+      </li>
+
+      <li>
+        <strong>Styling:</strong>
+        CSS3
+      </li>
+
+      <li>
+        <strong>Programming:</strong>
+        JavaScript (ES6)
+      </li>
+
+      <li>
+        <strong>UI:</strong>
+        Dynamic DOM generation and event-driven updates
+      </li>
+
+      <li>
+        <strong>Persistence:</strong>
+        Browser Local Storage
+      </li>
+
+      <li>
+        <strong>Deployment:</strong>
+        GitHub Pages
+      </li>
+
+      <li>
+        <strong>Features:</strong>
+        Dynamic forms, validation, responsive design, and theme persistence
+      </li>
+
+    </ul>
+
+
+    <!-- ENGINEERING APPROACH -->
+
+    <h2>Engineering Approach</h2>
+
+
+    <h3>Dynamic User Interface</h3>
+
+    <p>
+      Rather than hard-coding a fixed number of assignments, I used
+      JavaScript to generate course sections and assignment rows dynamically.
+      Users can add or delete entries as needed, allowing the same
+      application to support many different course structures.
+    </p>
+
+    <p>
+      Assignment labels are automatically renumbered after entries are
+      removed so the interface remains organized as the form changes.
+    </p>
+
+
+    <h3>Flexible Weighting System</h3>
+
+    <p>
+      Each course category can operate in one of two weighting modes.
+      Users can enter a single weight for an entire category or assign
+      individual weights to each item within that category.
+    </p>
+
+    <p>
+      The interface updates automatically when the weighting mode changes,
+      showing only the inputs required for the selected configuration.
+    </p>
+
+
+    <h3>Grade Calculation Logic</h3>
+
+    <p>
+      The application calculates how many weighted grade points have already
+      been earned and determines the remaining score required on the final
+      exam to reach the user's target grade.
+    </p>
+
+    <p>
+      The calculation also supports flat extra-credit percentages and
+      reports the student's current course grade based on the portion of
+      the course already completed.
+    </p>
+
+
+    <h3>Input Validation</h3>
+
+    <p>
+      I implemented validation to prevent invalid course configurations.
+      Before producing a final result, the calculator verifies that the
+      entered grading weights sum to exactly 100 percent.
+    </p>
+
+    <p>
+      The result interface also provides different messages when the
+      required final score is above 100 percent, already mathematically
+      secured, or within a normal achievable range.
+    </p>
+
+
+    <h3>Persistent Application State</h3>
+
+    <p>
+      Form state is serialized and stored in the browser using Local Storage.
+      This includes target grades, assignment scores, weighting modes,
+      category weights, and dynamically created assignment entries.
+    </p>
+
+    <p>
+      When the page loads, the stored configuration is reconstructed so users
+      can continue where they left off instead of re-entering an entire
+      course setup.
+    </p>
+
+
+    <h3>Responsive Theme System</h3>
+
+    <p>
+      The interface uses CSS variables to support both light and dark visual
+      themes. Theme selection is also stored locally so the user's preference
+      persists between sessions.
+    </p>
+
+
+    <!-- KEY TAKEAWAYS -->
+
+    <h2>Key Takeaways</h2>
+
+    <ul>
+
+      <li>
+        Built a complete interactive web application using HTML, CSS,
+        and vanilla JavaScript.
+      </li>
+
+      <li>
+        Used dynamic DOM manipulation instead of relying on a fixed
+        form structure.
+      </li>
+
+      <li>
+        Implemented application-state persistence using browser Local Storage.
+      </li>
+
+      <li>
+        Developed validation logic for multiple course-weighting formats
+        and edge cases.
+      </li>
+
+      <li>
+        Strengthened my understanding of event-driven programming,
+        UI state management, and client-side application design.
+      </li>
+
+      <li>
+        Deployed a functional utility application publicly using GitHub Pages.
+      </li>
+
+    </ul>
+
+
+    <!-- LIVE PROJECT -->
+
+    <h2>Live Project</h2>
+
+    <p>
+      The calculator is publicly deployed and can be used directly in a web
+      browser. The source code is also available on GitHub.
+    </p>
+
+    <div class="project-navigation">
+
+      <a
+        class="primary-button"
+        href="https://timbeely.github.io/gradeCalc/"
+        target="_blank"
+      >
+        Open Live Calculator →
+      </a>
+
+      <a
+        class="secondary-button"
+        href="https://github.com/timbeely/gradeCalc"
+        target="_blank"
+      >
+        View Source Code →
+      </a>
+
+    </div>
+
+
+    <div class="project-navigation">
+
+      <a class="secondary-button" href="index.html">
+        ← Back to Projects
+      </a>
+
+    </div>
+
+
+  </section>
+
+
+  <footer>
+    <p>© 2026 Timothy Bielefeld</p>
+  </footer>
+
+
+</body>
+</html>
