@@ -572,21 +572,6 @@ a:focus-visible,
   border-radius: 4px;
 }
 
-
-/* Improve readability of long technical paragraphs */
-
-section p {
-  max-width: 78ch;
-}
-
-
-/* Keep project-card text from becoming too wide */
-
-.project p {
-  max-width: 75ch;
-}
-
-
 /* Slightly stronger section spacing after cards */
 
 .project + .project {
