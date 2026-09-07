@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    Smart HVAC System | Timothy Bielefeld
+  </title>
+
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+  <header>
+    <h1>Smart HVAC System for Microclimate Control</h1>
+
+    <p class="subtitle">
+      Embedded Systems • Feedback Control • Arduino • PWM • Sensors
+    </p>
+
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="index.html">Projects</a>
+      <a href="../resume.html">Resume</a>
+      <a href="https://github.com/timbeely" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/tj-bielefeld" target="_blank">LinkedIn</a>
+    </nav>
+  </header>
+
+
+  <section>
+
+    <p>
+      <a href="index.html">← Back to Projects</a>
+    </p>
+
+
+    <!-- PROJECT OVERVIEW -->
+
+    <h2>Project Overview</h2>
+
+    <p>
+      I designed and built a small-scale HVAC control system to regulate
+      the temperature of an enclosed microclimate using closed-loop
+      feedback. An Arduino monitored the enclosure temperature and
+      automatically controlled a ventilation fan according to the difference
+      between the measured temperature and a user-selected setpoint.
+    </p>
+
+    <p>
+      The system combined temperature sensing, proportional feedback
+      control, PWM motor control, an LCD dashboard, and joystick-based
+      user input. The goal was to create a complete embedded control
+      system that could sense environmental conditions, make a control
+      decision, drive a physical actuator, and provide real-time
+      information to the user.
+    </p>
+
+
+    <!-- KEY VISUALS -->
+
+    <h2>Key Visuals</h2>
+
+    <div class="project-images">
+
+      <figure>
+        <img
+          src="../assets/images/hvac/IMG_0412.JPG"
+          alt="Completed smart HVAC microclimate prototype with ventilation fan"
+        >
+        <figcaption>
+          Completed microclimate prototype with electronically controlled
+          ventilation.
+        </figcaption>
+      </figure>
+
+      <figure>
+        <img
+          src="../assets/images/hvac/IMG_0410.JPG"
+          alt="Arduino HVAC controller showing temperature and setpoint on LCD"
+        >
+        <figcaption>
+          LCD dashboard displaying system state, measured temperature,
+          and user-defined setpoint.
+        </figcaption>
+      </figure>
+
+      <figure>
+        <img
+          src="../assets/images/hvac/IMG_0405.JPG"
+          alt="Arduino breadboard and sensor hardware used in the HVAC system"
+        >
+        <figcaption>
+          Embedded control hardware used to sense temperature and drive
+          the ventilation system.
+        </figcaption>
+      </figure>
+
+    </div>
+
+
+    <!-- TECHNICAL STACK -->
+
+    <h2>Technical Stack</h2>
+
+    <ul>
+      <li>
+        <strong>Microcontroller:</strong>
+        Arduino Uno
+      </li>
+
+      <li>
+        <strong>Firmware:</strong>
+        C/C++ using the Arduino framework
+      </li>
+
+      <li>
+        <strong>Temperature Sensor:</strong>
+        DHT11
+      </li>
+
+      <li>
+        <strong>Motor Control:</strong>
+        L293D motor driver with PWM fan-speed control
+      </li>
+
+      <li>
+        <strong>User Interface:</strong>
+        16×2 LCD and analog joystick
+      </li>
+
+      <li>
+        <strong>Control Method:</strong>
+        Closed-loop proportional feedback control
+      </li>
+
+      <li>
+        <strong>Prototype Hardware:</strong>
+        Breadboard circuitry, DC ventilation fan, and enclosed
+        microclimate test environment
+      </li>
+    </ul>
+
+
+    <!-- ENGINEERING APPROACH -->
+
+    <h2>Engineering Approach</h2>
+
+
+    <h3>Temperature Feedback</h3>
+
+    <p>
+      The Arduino periodically sampled the temperature inside the
+      microclimate using a digital temperature sensor. The measured
+      temperature was compared with the desired setpoint to determine
+      whether additional ventilation was required.
+    </p>
+
+    <p>
+      Sensor readings were checked before being incorporated into the
+      controller so invalid measurements would not overwrite the most
+      recent valid temperature value.
+    </p>
+
+
+    <h3>Closed-Loop Fan Control</h3>
+
+    <p>
+      I implemented proportional feedback control in which the fan command
+      depended on the temperature error between the measured temperature
+      and the selected target. Larger temperature differences produced a
+      stronger ventilation command, while the fan output decreased as the
+      enclosure approached the desired temperature.
+    </p>
+
+    <p>
+      A small temperature deadband was included around the target to prevent
+      unnecessary fan switching when the system was already close to the
+      setpoint.
+    </p>
+
+
+    <h3>PWM Motor Control</h3>
+
+    <p>
+      Fan speed was controlled using PWM through an L293D motor driver.
+      During testing, I accounted for the practical minimum drive level
+      required to keep the physical fan rotating reliably.
+    </p>
+
+    <p>
+      Combining proportional control with a minimum usable fan command
+      allowed the software controller to account for a real actuator
+      limitation rather than assuming the motor would respond linearly
+      across the entire PWM range.
+    </p>
+
+
+    <h3>User Interface</h3>
+
+    <p>
+      The system included a 16×2 LCD that displayed the current operating
+      state, measured temperature, and target temperature. This provided
+      real-time feedback without requiring the Arduino to remain connected
+      to a computer.
+    </p>
+
+    <p>
+      An analog joystick provided a simple embedded user interface for
+      modifying the target temperature. A button press switched between
+      normal monitoring and setpoint-editing modes, while joystick movement
+      adjusted the selected temperature.
+    </p>
+
+
+    <h3>Embedded Firmware Structure</h3>
+
+    <p>
+      Temperature sampling and LCD updates were scheduled using Arduino
+      timing functions so the main control loop could continue handling
+      multiple system tasks instead of relying entirely on long blocking
+      delays.
+    </p>
+
+    <p>
+      The firmware coordinated sensor acquisition, feedback control,
+      PWM output, display updates, and user input within the same embedded
+      application.
+    </p>
+
+
+    <h3>Testing and Validation</h3>
+
+    <p>
+      I tested the controller as a complete physical system rather than
+      evaluating the firmware independently. Testing included temperature
+      measurement, setpoint changes, LCD operation, joystick input,
+      ventilation response, and PWM fan behavior.
+    </p>
+
+    <p>
+      The completed prototype demonstrated closed-loop operation in which
+      the ventilation response automatically changed according to the
+      measured temperature relative to the selected setpoint down to 0.5&nbsp;°C error.
+    </p>
+
+
+    <!-- KEY TAKEAWAYS -->
+
+    <h2>Key Takeaways</h2>
+
+    <ul>
+      <li>
+        Applied feedback-control concepts to a physical thermal system
+        rather than relying solely on simulation.
+      </li>
+
+      <li>
+        Implemented proportional control that translated temperature error
+        into a variable actuator command.
+      </li>
+
+      <li>
+        Learned to account for real actuator behavior, including the
+        minimum PWM level required to maintain fan rotation.
+      </li>
+
+      <li>
+        Integrated sensing, motor control, user input, display output,
+        and control logic into a single embedded system.
+      </li>
+
+      <li>
+        Gained experience debugging interactions between firmware,
+        electronics, sensors, and physical system dynamics.
+      </li>
+    </ul>
+
+
+    <div class="project-navigation">
+
+      <a class="primary-button" href="index.html">
+        ← Back to Projects
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <footer>
+    <p>© 2026 Timothy Bielefeld</p>
+  </footer>
+
+</body>
+</html>
