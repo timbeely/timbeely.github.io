@@ -2,80 +2,380 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Haptic Wearable for Athelete Development | Timothy Bielefeld</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    Wearable Haptic Feedback System | Timothy Bielefeld
+  </title>
+
   <link rel="stylesheet" href="../css/style.css">
 </head>
+
 
 <body>
 
   <header>
-    <h1>Haptic Wearable</h1>
+    <h1>Wearable Haptic Feedback System</h1>
+
+    <p class="subtitle">
+      Embedded Systems • Firmware • BLE • Haptics • PCB Design
+    </p>
+
     <nav>
       <a href="../index.html">Home</a>
+      <a href="index.html">Projects</a>
       <a href="../resume.html">Resume</a>
-      <a href="https://github.com/timbeely" target="_blank">GitHub</a>
-      <a href="https://linkedin.com/in/tj-bielefeld" target="_blank">LinkedIn</a>
 
+      <a href="https://github.com/timbeely" target="_blank">
+        GitHub
+      </a>
+
+      <a href="https://linkedin.com/in/tj-bielefeld" target="_blank">
+        LinkedIn
+      </a>
     </nav>
   </header>
 
+
   <section>
+
     <p>
-      <a href="../index.html#projects">← Back to Projects</a>
+      <a href="index.html">← Back to Projects</a>
     </p>
+
+
+    <!-- PROJECT OVERVIEW -->
+
     <h2>Project Overview</h2>
+
     <p>
-      TBD
+      During my Summer 2026 electrical engineering internship, I worked on
+      the development of a battery-powered wearable haptic feedback system
+      designed to provide configurable tactile cues during athletic training.
+      The device combined embedded hardware, firmware, Bluetooth Low Energy
+      communication, haptic actuation, and mobile-app control in a compact
+      wearable platform.
     </p>
-  </section>
-<!--
-  <section>
+
+    <p>
+      My work included custom PCB design, ESP32-C3 firmware development,
+      integration of a dedicated LRA haptic driver, BLE communication,
+      rechargeable-battery power management, and mobile-app integration.
+      The firmware coordinated wireless configuration, tactile-pattern
+      playback, actuator calibration, connection management, and low-power
+      operation.
+    </p>
+
+    <p>
+      The final system supported configurable training intervals and multiple
+      tactile feedback patterns while maintaining reliable wireless control
+      and battery-powered operation.
+    </p>
+
+
+    <!-- KEY VISUALS -->
+
+    <h2>Key Visuals</h2>
+
+    <p>
+      Because this project was completed for an industry partner, proprietary
+      PCB layouts, schematics, source code, internal documentation, and
+      product imagery are not publicly displayed. The system-level
+      architecture is summarized below instead.
+    </p>
+
+
+    <div class="project">
+
+      <h3>System Architecture</h3>
+
+      <p>
+        The wearable was organized around an ESP32-C3 microcontroller that
+        coordinated wireless communication, haptic actuation, timing, and
+        device-state management.
+      </p>
+
+      <pre>
+Mobile Application
+       │
+       │ Bluetooth Low Energy
+       ▼
+    ESP32-C3
+       │
+       │ I2C
+       ▼
+  Haptic Driver
+       │
+       ▼
+  LRA Actuator
+
+Battery / Power Management
+       │
+       └────────────→ Embedded System
+      </pre>
+
+    </div>
+
+
+    <!-- TECHNICAL STACK -->
+
     <h2>Technical Stack</h2>
+
     <ul>
-      <li>Microcontrollers (Arduino)</li>
-      <li>Python-based timing and control logic</li>
-      <li>Embedded system design</li>
-      <li>Human-in-the-loop feedback systems</li>
-      <li>Hardware prototyping and testing</li>
+      <li>
+        <strong>Microcontroller:</strong>
+        Seeed Studio XIAO ESP32-C3
+      </li>
+
+      <li>
+        <strong>Firmware:</strong>
+        Embedded C++
+      </li>
+
+      <li>
+        <strong>Wireless Communication:</strong>
+        Bluetooth Low Energy (BLE)
+      </li>
+
+      <li>
+        <strong>Peripheral Communication:</strong>
+        I2C
+      </li>
+
+      <li>
+        <strong>Haptic System:</strong>
+        LRA actuator with dedicated haptic driver
+      </li>
+
+      <li>
+        <strong>PCB Design:</strong>
+        KiCad
+      </li>
+
+      <li>
+        <strong>Power:</strong>
+        Rechargeable lithium-battery power and protection system
+      </li>
+
+      <li>
+        <strong>Mobile Integration:</strong>
+        React Native, Expo, TypeScript, and iOS development tools
+      </li>
+
+      <li>
+        <strong>Embedded Features:</strong>
+        Non-volatile configuration storage, deep sleep, GPIO wake,
+        automatic BLE re-advertising, and configurable haptic patterns
+      </li>
     </ul>
-  </section>
-  
-  <section>
+
+
+    <!-- ENGINEERING APPROACH -->
+
     <h2>Engineering Approach</h2>
-    <ul>
-      <li></li>
-      <li></li>
-      <li></li>
-    </ul>
-  </section>
 
-  <section>
+
+    <h3>Hardware and Power Design</h3>
+
+    <p>
+      The wearable was built around the ESP32-C3 to provide embedded
+      processing and Bluetooth Low Energy communication in a small form
+      factor. I worked on the custom PCB design used to integrate the
+      microcontroller, haptic subsystem, power electronics, and supporting
+      interfaces into the wearable platform.
+    </p>
+
+    <p>
+      Because the system was intended for portable athletic use, power
+      consumption and battery life were important design constraints.
+      Rechargeable-battery protection and power-management functionality
+      were incorporated into the hardware, while firmware-level low-power
+      behavior was used to reduce unnecessary current draw when the device
+      was not actively operating.
+    </p>
+
+
+    <h3>Firmware and Haptic Control</h3>
+
+    <p>
+      I developed embedded C++ firmware to coordinate the major functions of
+      the wearable. The runtime architecture handled BLE communication,
+      interval timing, haptic playback, calibration state, connection
+      management, and power-state transitions.
+    </p>
+
+    <p>
+      Timing for recurring tactile cues was implemented using a non-blocking
+      approach based on system time rather than long blocking delays. This
+      allowed the main loop to continue processing wireless communication,
+      device-state changes, and power-management logic while maintaining
+      configurable feedback intervals.
+    </p>
+
+    <p>
+      Multiple tactile patterns were implemented so the mobile application
+      could select different physical cues depending on the training
+      configuration. Haptic playback was controlled through a dedicated
+      driver over I2C, with firmware managing waveform selection and
+      playback sequencing.
+    </p>
+
+
+    <h3>Haptic Calibration and Persistent Configuration</h3>
+
+    <p>
+      The haptic subsystem used a linear resonant actuator (LRA), requiring
+      appropriate driver configuration to achieve consistent tactile
+      feedback. I implemented an automatic calibration routine that
+      characterized the actuator and stored successful calibration
+      parameters in the ESP32's non-volatile memory.
+    </p>
+
+    <p>
+      Once calibration had been attempted, the firmware could restore saved
+      parameters on later power cycles rather than repeatedly running the
+      higher-current calibration process. The system also included failure
+      handling and fallback drive parameters so the wearable could continue
+      operating if automatic calibration did not complete successfully.
+    </p>
+
+    <p>
+      A wireless recalibration command was also implemented. Recalibration
+      requests were deferred to the main firmware loop rather than executed
+      directly inside the BLE callback, reducing the risk of interfering with
+      the Bluetooth stack while reinitializing the haptic configuration.
+    </p>
+
+
+    <h3>BLE and Mobile Integration</h3>
+
+    <p>
+      Bluetooth Low Energy was used to configure the wearable from a mobile
+      application. The firmware exposed a BLE service that received
+      configuration data containing training timing and tactile-pattern
+      selections.
+    </p>
+
+    <p>
+      Incoming commands were parsed on the ESP32-C3 and used to update the
+      active training configuration without requiring a firmware restart.
+      The device also monitored connection state and automatically resumed
+      BLE advertising after a disconnect, allowing the wearable to reconnect
+      to a mobile device without a manual reset.
+    </p>
+
+    <p>
+      The companion application provided the higher-level configuration
+      interface used to control wearable behavior and manage training
+      settings wirelessly.
+    </p>
+
+
+    <h3>Power Management</h3>
+
+    <p>
+      To reduce standby power consumption, I implemented a deep-sleep state
+      tied to the wearable's physical power control. Before entering deep
+      sleep, the firmware stopped active haptic playback and placed the
+      haptic driver into standby.
+    </p>
+
+    <p>
+      The ESP32-C3 then configured a GPIO-based wake condition and entered
+      deep sleep, allowing the device to remain in a very low-power state
+      until the physical control returned the system to its active state.
+      On wake, the firmware restored the required peripherals, BLE
+      advertising, and haptic configuration.
+    </p>
+
+
+    <h3>Testing and Validation</h3>
+
+    <p>
+      Development involved iterative hardware and firmware testing across the
+      complete signal path, including BLE communication, haptic-driver
+      control, actuator response, calibration behavior, reconnection logic,
+      power-state transitions, and repeated interval playback.
+    </p>
+
+    <p>
+      The completed wearable achieved more than four hours of active runtime
+      and supported strong LRA-based tactile feedback, including actuator
+      operation near its intended resonant frequency. Testing also verified
+      reliable configuration updates, repeated haptic triggering, automatic
+      BLE recovery after disconnection, and proper transition between active
+      and low-power states.
+    </p>
+
+
+    <!-- KEY TAKEAWAYS -->
+
     <h2>Key Takeaways</h2>
+
     <ul>
-      <li></li>
-      <li></li>
-      <li></li>
+      <li>
+        Gained experience developing a complete embedded system spanning
+        custom hardware, firmware, wireless communication, actuation, and
+        mobile integration.
+      </li>
+
+      <li>
+        Applied non-blocking firmware design to coordinate timing, BLE
+        communication, tactile feedback, and device-state management within
+        a single embedded application.
+      </li>
+
+      <li>
+        Implemented persistent actuator calibration and failure handling to
+        improve repeatability across power cycles.
+      </li>
+
+      <li>
+        Designed low-power behavior using peripheral standby, ESP32 deep
+        sleep, and GPIO-based wake control for battery-powered operation.
+      </li>
+
+      <li>
+        Strengthened my understanding of debugging systems where hardware,
+        firmware, power electronics, wireless communication, and mechanical
+        actuation must operate together reliably.
+      </li>
     </ul>
+
+
+    <!-- CONFIDENTIALITY -->
+
+    <h2>Project Confidentiality</h2>
+
+    <p>
+      This project was developed during an industry internship. Proprietary
+      source code, PCB layouts, schematics, internal documentation, product
+      imagery, and company-specific implementation details are intentionally
+      omitted from this portfolio.
+    </p>
+
+    <p>
+      The information presented here is limited to my engineering
+      responsibilities, system-level design, development approach, and
+      non-confidential technical results.
+    </p>
+
+
+    <div class="project-navigation">
+
+      <a class="primary-button" href="index.html">
+        ← Back to Projects
+      </a>
+
+    </div>
+
   </section>
 
-  <section>
-    <h2>Report</h2>
 
-    <iframe
-      src="../assets/pdf/haptic-wearable.pdf"
-      width="100%"
-      height="900px"
-      style="border: none;">
-    </iframe>
+  <footer>
+    <p>© 2026 Timothy Bielefeld</p>
+  </footer>
 
-  </section>
 
-  <div class="pdf-button">
-    <a href="../assets/pdf/haptic-wearable.pdf" target="_blank">
-      Open PDF in Full View
-    </a>
-  </div>
-  
--->
 </body>
 </html>
