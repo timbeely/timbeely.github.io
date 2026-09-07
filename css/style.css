@@ -70,7 +70,7 @@ header {
 
   color: white;
 
-  padding: 56px 20px 44px;
+  padding: 48px 20px 38px;
   text-align: center;
 
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -134,6 +134,24 @@ nav a:focus-visible {
   border-radius: 4px;
 }
 
+nav a.active {
+  color: white;
+  position: relative;
+}
+
+nav a.active::after {
+  content: "";
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: -7px;
+
+  height: 2px;
+
+  background-color: #60a5fa;
+  border-radius: 2px;
+}
 
 /* =========================
    MAIN SECTIONS
@@ -482,24 +500,6 @@ iframe {
   transform: translateY(-1px);
 }
 
-nav a.active {
-  color: white;
-  position: relative;
-}
-
-nav a.active::after {
-  content: "";
-  position: absolute;
-
-  left: 0;
-  right: 0;
-  bottom: -7px;
-
-  height: 2px;
-
-  background-color: #60a5fa;
-  border-radius: 2px;
-}
 /* =========================
    PROJECT STATUS
    ========================= */
@@ -533,6 +533,118 @@ footer p {
   margin: 0;
 }
 
+/* =========================
+   FINAL POLISH
+   ========================= */
+
+/* Slightly smoother card interaction */
+
+.project {
+  cursor: default;
+}
+
+.project a {
+  display: inline-block;
+  margin-top: 2px;
+}
+
+.project a::after {
+  content: "";
+}
+
+
+/* Cleaner text selection */
+
+::selection {
+  background: #dbeafe;
+  color: var(--navy);
+}
+
+
+/* Make keyboard focus consistent across all links/buttons */
+
+a:focus-visible,
+.primary-button:focus-visible,
+.secondary-button:focus-visible,
+.pdf-button a:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+
+/* Improve readability of long technical paragraphs */
+
+section p {
+  max-width: 78ch;
+}
+
+
+/* Keep project-card text from becoming too wide */
+
+.project p {
+  max-width: 75ch;
+}
+
+
+/* Slightly stronger section spacing after cards */
+
+.project + .project {
+  margin-top: 20px;
+}
+
+
+/* Improve figure presentation */
+
+.project-images figure,
+.project-images-vertical {
+  width: 100%;
+}
+
+.project-images img,
+.project-images-vertical img {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.project-images img:hover,
+.project-images-vertical img:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+
+/* Slightly cleaner report presentation */
+
+iframe {
+  overflow: hidden;
+}
+
+
+/* Prevent footer from feeling detached */
+
+footer {
+  background-color: #f1f5f9;
+}
+
+
+/* Better active-nav emphasis */
+
+nav a.active {
+  font-weight: 700;
+}
+
+
+/* Improve overall heading rhythm */
+
+h2 + p {
+  margin-top: -4px;
+}
+
+h3 + p {
+  margin-top: 0;
+}
 
 /* =========================
    RESPONSIVE
