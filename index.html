@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,254 +14,405 @@
 
   <link rel="canonical" href="https://timbeely.github.io/">
 
-  <meta property="og:title" content="Timothy Bielefeld | Embedded Systems & Controls Portfolio">
+  <meta
+    property="og:title"
+    content="Timothy Bielefeld | Embedded Systems & Controls Portfolio"
+  >
+
   <meta
     property="og:description"
     content="Electrical Engineering portfolio featuring embedded systems, firmware, control systems, analog circuit design, and experimental validation."
   >
+
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://timbeely.github.io/">
 
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
-  <header>
-    <h1>Timothy (TJ) Bielefeld</h1>
-    <p class="subtitle">
-    Embedded Systems • Controls • Firmware
-  </p>
 
-  <p class="header-detail">
-    Purdue University • B.S. Electrical Engineering • Class of 2028
-  </p>
+<body>
+
+  <header>
+
+    <h1>Timothy (TJ) Bielefeld</h1>
+
+    <p class="subtitle">
+      Embedded Systems • Controls • Firmware
+    </p>
+
+    <p class="header-detail">
+      Purdue University • B.S. Electrical Engineering • Class of 2028
+    </p>
+
     <nav>
       <a href="index.html" class="active">Home</a>
       <a href="projects/index.html">Projects</a>
       <a href="resume.html">Resume</a>
       <a href="https://github.com/timbeely" target="_blank">GitHub</a>
       <a href="https://linkedin.com/in/tj-bielefeld" target="_blank">LinkedIn</a>
-</nav>
+    </nav>
+
   </header>
 
+
+  <!-- ABOUT -->
+
   <section class="about">
+
     <h2>About Me</h2>
+
     <p>
-    Electrical Engineering student at Purdue University concentrating in automatic control,
-with a focus on embedded control systems, firmware development, and analog circuit design.
+      Electrical Engineering student at Purdue University concentrating in
+      automatic control, with a focus on embedded control systems, firmware
+      development, and analog circuit design.
     </p>
 
     <p>
-I approach engineering with an emphasis on correctness, validation, and long-term reliability.
-I enjoy taking systems from initial design through implementation and experimental testing,
-using measurement and iteration to improve real-world performance.
-</p>
+      I approach engineering with an emphasis on correctness, validation, and
+      long-term reliability. I enjoy taking systems from initial design through
+      implementation and experimental testing, using measurement and iteration
+      to improve real-world performance.
+    </p>
+
   </section>
-  
+
+
+  <!-- FEATURED PROJECTS -->
+
   <section id="projects">
 
-  <h2>Featured Projects</h2>
+    <h2>Featured Projects</h2>
 
-  <p>
-    Selected engineering projects focused on embedded systems, control systems,
-    firmware development, analog circuit design, and experimental validation.
-  </p>
-
-
-  <!-- PROJECT 1 -->
-
-<div class="project project-card">
-
-  <span class="project-year">2026</span>
-
-  <a href="projects/haptic-wearable.html" class="project-thumbnail-link">
-    <img
-      src="assets/images/Haptic-Wearable-SS/PCB-3d-viewer.png"
-      alt="3D KiCad rendering of wearable haptic feedback system PCB"
-      class="project-thumbnail"
-    >
-  </a>
-
-  <h3>Wearable Haptic Feedback System for Skill Reinforcement</h3>
-
-  <div class="project-tags">
-    <span>ESP32-C3</span>
-    <span>C++</span>
-    <span>BLE</span>
-    <span>I2C</span>
-    <span>KiCad</span>
-  </div>
-
-  <p>
-    Developed a battery-powered ESP32-C3 wearable integrating custom PCB
-    hardware, embedded C++ firmware, BLE communication, and LRA haptic
-    feedback. Implemented configurable tactile cues, automatic haptic
-    calibration, and low-power operation for real-time athletic training.
-  </p>
-
-  <a href="projects/haptic-wearable.html">
-    View Project →
-  </a>
-
-</div>
+    <p>
+      Selected engineering projects focused on embedded systems, control
+      systems, firmware development, analog circuit design, and experimental
+      validation.
+    </p>
 
 
-<!-- PROJECT 2 -->
+    <!-- PROJECT 1 — WEARABLE -->
 
-<div class="project project-card">
+    <div class="project project-card">
 
-  <span class="project-year">2026</span>
+      <div class="project-header">
+        <h3>
+          Wearable Haptic Feedback System for Skill Reinforcement
+        </h3>
 
-  <a href="projects/optical-hr-sensor.html" class="project-thumbnail-link">
-    <img
-      src="assets/images/heart-rate/IMG_0076.JPG"
-      alt="Breadboard implementation of optical heart rate sensor"
-      class="project-thumbnail"
-    >
-  </a>
-
-  <h3>Optical Heart Rate Sensor</h3>
-
-  <div class="project-tags">
-    <span>Analog Design</span>
-    <span>Active Filters</span>
-    <span>Op-Amps</span>
-    <span>FRA</span>
-    <span>Instrumentation</span>
-  </div>
-
-  <p>
-    Designed and experimentally validated a four-stage analog
-    photoplethysmography system using infrared sensing, active filtering,
-    signal amplification, and comparator-based pulse detection. Achieved
-    a measured 54.87 V/V peak gain and converted the filtered heartbeat
-    into a digital output and synchronized LED indicator.
-  </p>
-
-  <a href="projects/optical-hr-sensor.html">
-    View Project →
-  </a>
-
-</div>
+        <span class="project-year">2026</span>
+      </div>
 
 
-<!-- PROJECT 3 -->
+      <div class="project-body project-body-with-image">
 
-<div class="project project-card">
+        <div class="project-text">
 
-  <span class="project-year">2026</span>
+          <div class="project-tags">
+            <span>ESP32-C3</span>
+            <span>C++</span>
+            <span>BLE</span>
+            <span>I2C</span>
+            <span>KiCad</span>
+          </div>
 
-  <a href="projects/smart-hvac.html" class="project-thumbnail-link">
-    <img
-      src="assets/images/hvac/IMG_0412.JPG"
-      alt="Completed smart HVAC microclimate control prototype"
-      class="project-thumbnail"
-    >
-  </a>
+          <p>
+            Developed a battery-powered ESP32-C3 wearable integrating custom
+            PCB hardware, embedded C++ firmware, BLE communication, and LRA
+            haptic feedback. Implemented configurable tactile cues, automatic
+            haptic calibration, and low-power operation for real-time athletic
+            training.
+          </p>
 
-  <h3>Smart HVAC System for Microclimate Control</h3>
+          <a href="projects/haptic-wearable.html">
+            View Project →
+          </a>
 
-  <div class="project-tags">
-    <span>Arduino</span>
-    <span>C++</span>
-    <span>Feedback Control</span>
-    <span>PWM</span>
-    <span>Sensors</span>
-  </div>
-
-  <p>
-    Designed and built a closed-loop temperature control system using an
-    Arduino, temperature sensing, PWM-controlled ventilation, and an
-    interactive LCD interface. Implemented proportional feedback control
-    that adjusted fan speed based on temperature error relative to a
-    user-defined setpoint.
-  </p>
-
-  <a href="projects/smart-hvac.html">
-    View Project →
-  </a>
-
-</div>
+        </div>
 
 
-<!-- PROJECT 4 -->
+        <a
+          href="projects/haptic-wearable.html"
+          class="project-thumbnail-link"
+        >
+          <img
+            src="assets/images/Haptic-Wearable-SS/PCB-3d-viewer.png"
+            alt="3D KiCad rendering of the wearable haptic feedback PCB"
+            class="project-thumbnail contain"
+          >
+        </a>
 
-<div class="project project-card">
+      </div>
 
-  <span class="project-year">2025</span>
-
-  <a href="projects/audio-equalizer.html" class="project-thumbnail-link">
-    <img
-      src="assets/images/Audio-Equalizer-SS/max-vol-100.png"
-      alt="Oscilloscope measurement from three-band audio equalizer testing"
-      class="project-thumbnail"
-    >
-  </a>
-
-  <h3>3-Band Audio Equalizer</h3>
-
-  <div class="project-tags">
-    <span>Analog Design</span>
-    <span>RC Filters</span>
-    <span>Op-Amps</span>
-    <span>LTSpice</span>
-    <span>Oscilloscope</span>
-  </div>
-
-  <p>
-    Designed, constructed, and experimentally validated a three-band analog
-    audio equalizer using passive RC filters, op-amp gain stages, signal
-    recombination, and a power amplifier capable of driving an
-    8&nbsp;Ω speaker. Verified frequency response from
-    100&nbsp;Hz–10&nbsp;kHz within ±2&nbsp;dB across all bands.
-  </p>
-
-  <a href="projects/audio-equalizer.html">
-    View Project →
-  </a>
-
-</div>
+    </div>
 
 
-  <!-- PROJECT NAVIGATION -->
+    <!-- PROJECT 2 — OPTICAL HEART RATE SENSOR -->
 
-  <div class="project-navigation">
+    <div class="project project-card">
 
-    <a class="primary-button" href="projects/index.html">
-      View All Projects →
-    </a>
+      <div class="project-header">
+        <h3>
+          Optical Heart Rate Sensor
+        </h3>
 
-    <a class="secondary-button" href="projects/archives.html">
-      Explore Project Archive →
-    </a>
+        <span class="project-year">2026</span>
+      </div>
 
-  </div>
 
-</section>
+      <div class="project-body project-body-with-image">
+
+        <div class="project-text">
+
+          <div class="project-tags">
+            <span>Analog Design</span>
+            <span>Active Filters</span>
+            <span>Op-Amps</span>
+            <span>FRA</span>
+            <span>Instrumentation</span>
+          </div>
+
+          <p>
+            Designed and experimentally validated a four-stage analog
+            photoplethysmography system using infrared sensing, active
+            filtering, signal amplification, and comparator-based pulse
+            detection. Achieved a measured 54.87 V/V peak gain and converted
+            the filtered heartbeat into a digital output and synchronized LED
+            indicator.
+          </p>
+
+          <a href="projects/optical-hr-sensor.html">
+            View Project →
+          </a>
+
+        </div>
+
+
+        <a
+          href="projects/optical-hr-sensor.html"
+          class="project-thumbnail-link"
+        >
+          <img
+            src="assets/images/heart-rate/IMG_0076.JPG"
+            alt="Breadboard implementation of the optical heart rate sensor"
+            class="project-thumbnail"
+          >
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- PROJECT 3 — HVAC -->
+
+    <div class="project project-card">
+
+      <div class="project-header">
+        <h3>
+          Smart HVAC System for Microclimate Control
+        </h3>
+
+        <span class="project-year">2026</span>
+      </div>
+
+
+      <div class="project-body project-body-with-image">
+
+        <div class="project-text">
+
+          <div class="project-tags">
+            <span>Arduino</span>
+            <span>C++</span>
+            <span>Feedback Control</span>
+            <span>PWM</span>
+            <span>Sensors</span>
+          </div>
+
+          <p>
+            Designed and built a closed-loop temperature control system using
+            an Arduino, temperature sensing, PWM-controlled ventilation, and an
+            interactive LCD interface. Implemented proportional feedback
+            control that adjusted fan speed based on temperature error relative
+            to a user-defined setpoint.
+          </p>
+
+          <a href="projects/smart-hvac.html">
+            View Project →
+          </a>
+
+        </div>
+
+
+        <a
+          href="projects/smart-hvac.html"
+          class="project-thumbnail-link"
+        >
+          <img
+            src="assets/images/hvac/IMG_0412.JPG"
+            alt="Completed smart HVAC microclimate control prototype"
+            class="project-thumbnail"
+          >
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- PROJECT 4 — AUDIO EQUALIZER -->
+
+    <div class="project project-card">
+
+      <div class="project-header">
+        <h3>
+          3-Band Audio Equalizer
+        </h3>
+
+        <span class="project-year">2025</span>
+      </div>
+
+
+      <div class="project-body project-body-with-image">
+
+        <div class="project-text">
+
+          <div class="project-tags">
+            <span>Analog Design</span>
+            <span>RC Filters</span>
+            <span>Op-Amps</span>
+            <span>LTSpice</span>
+            <span>Oscilloscope</span>
+          </div>
+
+          <p>
+            Designed, constructed, and experimentally validated a three-band
+            analog audio equalizer using passive RC filters, op-amp gain
+            stages, signal recombination, and a power amplifier capable of
+            driving an 8&nbsp;Ω speaker. Verified frequency response from
+            100&nbsp;Hz–10&nbsp;kHz within ±2&nbsp;dB across all bands.
+          </p>
+
+          <a href="projects/audio-equalizer.html">
+            View Project →
+          </a>
+
+        </div>
+
+
+        <a
+          href="projects/audio-equalizer.html"
+          class="project-thumbnail-link"
+        >
+          <img
+            src="assets/images/Audio-Equalizer-SS/max-vol-100.png"
+            alt="Oscilloscope measurement from three-band audio equalizer testing"
+            class="project-thumbnail"
+          >
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- PROJECT NAVIGATION -->
+
+    <div class="project-navigation">
+
+      <a
+        class="primary-button"
+        href="projects/index.html"
+      >
+        View All Projects →
+      </a>
+
+      <a
+        class="secondary-button"
+        href="projects/archives.html"
+      >
+        Explore Project Archive →
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- TECHNICAL SKILLS -->
 
   <section>
+
     <h2>Technical Skills</h2>
+
     <ul>
-    <li><strong>Embedded & Hardware:</strong> Microcontrollers (ESP32, Arduino), PCB Design (KiCad), I2C, BLE, PWM, Analog Circuit Design</li>
-    <li><strong>Controls & Systems:</strong> PID Loop Tuning, Feedback Control, Frequency Response Analysis (FRA)</li>
-    <li><strong>Programming:</strong> C/C++, Python (NumPy, SciPy), MATLAB, Java, TypeScript, HTML/CSS, Verilog</li>
-    <li><strong>Tools:</strong> Oscilloscope, LTSpice, KiCad, VS Code, Git/GitHub, Expo, React Native, SQL, Excel</li>
+      <li>
+        <strong>Embedded & Hardware:</strong>
+        Microcontrollers (ESP32, Arduino), PCB Design (KiCad), I2C, BLE,
+        PWM, Analog Circuit Design
+      </li>
+
+      <li>
+        <strong>Controls & Systems:</strong>
+        PID Loop Tuning, Feedback Control, Frequency Response Analysis (FRA)
+      </li>
+
+      <li>
+        <strong>Programming:</strong>
+        C/C++, Python (NumPy, SciPy), MATLAB, Java, TypeScript, HTML/CSS,
+        Verilog
+      </li>
+
+      <li>
+        <strong>Tools:</strong>
+        Oscilloscope, LTSpice, KiCad, VS Code, Git/GitHub, Expo,
+        React Native, SQL, Excel
+      </li>
     </ul>
+
   </section>
-  
+
+
+  <!-- CONTACT -->
+
   <section id="contact">
+
     <h2>Contact</h2>
-    <p>Email: <a href="mailto:timbeely@gmail.com">timbeely@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/tj-bielefeld" target="_blank">
-      linkedin.com/in/tj-bielefeld
-    </a></p>
-    <p>GitHub: <a href="https://github.com/timbeely" target="_blank">
-      github.com/timbeely
-    </a></p>
-</section>
+
+    <p>
+      Email:
+      <a href="mailto:timbeely@gmail.com">
+        timbeely@gmail.com
+      </a>
+    </p>
+
+    <p>
+      LinkedIn:
+      <a
+        href="https://linkedin.com/in/tj-bielefeld"
+        target="_blank"
+      >
+        linkedin.com/in/tj-bielefeld
+      </a>
+    </p>
+
+    <p>
+      GitHub:
+      <a
+        href="https://github.com/timbeely"
+        target="_blank"
+      >
+        github.com/timbeely
+      </a>
+    </p>
+
+  </section>
+
 
   <footer>
     <p>© 2026 Timothy Bielefeld</p>
   </footer>
+
 </body>
+
 </html>

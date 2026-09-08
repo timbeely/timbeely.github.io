@@ -143,6 +143,7 @@ nav a:focus-visible {
 nav a.active {
   color: white;
   position: relative;
+  font-weight: 700;
 }
 
 nav a.active::after {
@@ -158,6 +159,7 @@ nav a.active::after {
   background-color: #60a5fa;
   border-radius: 2px;
 }
+
 
 /* =========================
    MAIN SECTIONS
@@ -243,6 +245,8 @@ section > p > a:hover {
 
   box-shadow: var(--shadow-sm);
 
+  cursor: default;
+
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease,
@@ -268,6 +272,10 @@ section > p > a:hover {
 }
 
 .project a {
+  display: inline-block;
+
+  margin-top: 2px;
+
   color: var(--blue);
 
   text-decoration: none;
@@ -281,6 +289,7 @@ section > p > a:hover {
 .project-tags {
   display: flex;
   flex-wrap: wrap;
+
   gap: 7px;
 
   margin: 0 0 14px;
@@ -302,43 +311,141 @@ section > p > a:hover {
   line-height: 1.3;
 }
 
+
+/* =========================
+   ENHANCED PROJECT CARDS
+   ========================= */
+
+/*
+   project-card is optional.
+
+   Standard .project cards continue to work without an image.
+
+   For enhanced cards:
+   1. project-header holds the title and year.
+   2. project-body holds the content.
+   3. project-body-with-image adds the right-side thumbnail.
+*/
+
 .project-card {
   position: relative;
 }
 
-.project-year {
-  display: block;
-  margin-bottom: 0.65rem;
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: #64748b;
+
+/* Title + year row */
+
+.project-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 24px;
+
+  margin-bottom: 14px;
 }
+
+.project-header h3 {
+  flex: 1;
+
+  margin: 0;
+
+  font-size: 1.22rem;
+  letter-spacing: -0.01em;
+}
+
+.project-year {
+  flex-shrink: 0;
+
+  padding-top: 2px;
+
+  color: var(--text-muted);
+
+  font-size: 0.86rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.045em;
+}
+
+
+/* Standard body remains full width */
+
+.project-body {
+  width: 100%;
+}
+
+.project-text {
+  min-width: 0;
+}
+
+
+/* Optional image layout */
+
+.project-body-with-image {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(220px, 270px);
+
+  gap: 32px;
+
+  align-items: center;
+}
+
+
+/* Thumbnail link */
 
 .project-thumbnail-link {
   display: block;
-  margin-bottom: 1.1rem;
+
+  width: 100%;
+  margin: 0;
+
+  border-radius: 10px;
+
+  overflow: hidden;
 }
+
+
+/* Default thumbnail behavior */
 
 .project-thumbnail {
   display: block;
+
   width: 100%;
-  height: 220px;
+  height: 185px;
+
   object-fit: cover;
+
+  border: 1px solid var(--border);
   border-radius: 10px;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+
+  background-color: #f8fafc;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .project-thumbnail-link:hover .project-thumbnail {
-  transform: scale(1.01);
-  opacity: 0.94;
+  transform: scale(1.015);
+  opacity: 0.96;
+
+  box-shadow: var(--shadow-sm);
 }
 
-@media (max-width: 700px) {
-  .project-thumbnail {
-    height: 190px;
-  }
+
+/*
+   Use this on images that should not be cropped,
+   such as the wearable PCB render.
+*/
+
+.project-thumbnail.contain {
+  object-fit: contain;
 }
+
+
 /* =========================
    LISTS
    ========================= */
@@ -399,6 +506,7 @@ li::marker {
 .primary-button {
   background-color: var(--blue);
   color: white;
+
   border: 1px solid var(--blue);
 }
 
@@ -461,6 +569,15 @@ li::marker {
   border-radius: var(--radius-md);
 
   box-shadow: var(--shadow-sm);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.project-images img:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .project-images figcaption {
@@ -484,6 +601,8 @@ li::marker {
   margin: 32px 0;
 
   align-items: center;
+
+  width: 100%;
 }
 
 .project-images-vertical img {
@@ -497,6 +616,15 @@ li::marker {
   border-radius: var(--radius-md);
 
   box-shadow: var(--shadow-sm);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.project-images-vertical img:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 
@@ -506,6 +634,8 @@ li::marker {
 
 iframe {
   width: 100%;
+
+  overflow: hidden;
 
   border: 1px solid var(--border) !important;
   border-radius: var(--radius-md);
@@ -566,6 +696,7 @@ iframe {
   transform: translateY(-1px);
 }
 
+
 /* =========================
    PROJECT STATUS
    ========================= */
@@ -593,33 +724,18 @@ footer {
   color: var(--text-muted);
 
   border-top: 1px solid var(--border);
+
+  background-color: #f1f5f9;
 }
 
 footer p {
   margin: 0;
 }
 
+
 /* =========================
    FINAL POLISH
    ========================= */
-
-/* Slightly smoother card interaction */
-
-.project {
-  cursor: default;
-}
-
-.project a {
-  display: inline-block;
-  margin-top: 2px;
-}
-
-.project a::after {
-  content: "";
-}
-
-
-/* Cleaner text selection */
 
 ::selection {
   background: #dbeafe;
@@ -627,7 +743,7 @@ footer p {
 }
 
 
-/* Make keyboard focus consistent across all links/buttons */
+/* Keyboard focus */
 
 a:focus-visible,
 .primary-button:focus-visible,
@@ -638,56 +754,15 @@ a:focus-visible,
   border-radius: 4px;
 }
 
-/* Slightly stronger section spacing after cards */
+
+/* Card spacing */
 
 .project + .project {
   margin-top: 20px;
 }
 
 
-/* Improve figure presentation */
-
-.project-images figure,
-.project-images-vertical {
-  width: 100%;
-}
-
-.project-images img,
-.project-images-vertical img {
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.project-images img:hover,
-.project-images-vertical img:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
-
-
-/* Slightly cleaner report presentation */
-
-iframe {
-  overflow: hidden;
-}
-
-
-/* Prevent footer from feeling detached */
-
-footer {
-  background-color: #f1f5f9;
-}
-
-
-/* Better active-nav emphasis */
-
-nav a.active {
-  font-weight: 700;
-}
-
-
-/* Improve overall heading rhythm */
+/* Heading rhythm */
 
 h2 + p {
   margin-top: -4px;
@@ -697,9 +772,28 @@ h3 + p {
   margin-top: 0;
 }
 
+
 /* =========================
    RESPONSIVE
    ========================= */
+
+@media (max-width: 800px) {
+
+  .project-body-with-image {
+    grid-template-columns: 1fr;
+
+    gap: 22px;
+  }
+
+  .project-thumbnail-link {
+    max-width: 520px;
+  }
+
+  .project-thumbnail {
+    height: 220px;
+  }
+}
+
 
 @media (max-width: 700px) {
 
@@ -724,6 +818,18 @@ h3 + p {
     transform: none;
   }
 
+  .project-header {
+    gap: 16px;
+  }
+
+  .project-header h3 {
+    font-size: 1.16rem;
+  }
+
+  .project-year {
+    font-size: 0.82rem;
+  }
+
   .project-navigation {
     flex-direction: column;
   }
@@ -737,5 +843,16 @@ h3 + p {
   iframe {
     height: 650px;
   }
+}
 
+
+@media (max-width: 480px) {
+
+  .project-header {
+    gap: 12px;
+  }
+
+  .project-thumbnail {
+    height: 190px;
+  }
 }
